@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block inss %}
+Category &nbsp;&nbsp; {{cata.cats}}
+<hr>
+{% for post in cposts%}
+      <div class="intro2">
+      
+<li>{{post.time|date:"Y/m/d      "}}   &nbsp;<a href="/artic/{{post.id}}"><font color="#388E8E">{{post.title|safe}}</font></a></li>
+</div>
+{% endfor %}
+{% endblock %}

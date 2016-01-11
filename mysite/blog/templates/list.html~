@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block listarc %}
+{% for article in pos%}
+  <!-- begin article -->
+  <article class="post hentry format-image">
+  	<header class="entry-header">
+		<h2 class="entry-title"><a href="/artic/{{article.id}}">{{article.title}}</a></h2>
+		<div class="entry-meta">
+      		<div class="entry-format">
+        		<span class="image-format">image</span>
+        	</div>
+      		<span class="sep"> | </span>
+      		<a href="#"><time class="entry-date">{{article.time|date:"y,F jS"}}</time></a>
+      		<span class="sep"> | </span>	
+      		<span class="cat-links"> <a href="#">{{article.writer}}</a></span>
+     	</div>
+    	<!-- .entry-meta -->
+    </header>
+    <!-- .entry-header -->
+    
+    <div class="entry-content">
+      <div class="full-size"></div>
+		{{article.body|safe}}
+ 	</div>
+    <!-- .entry-content -->
+    
+  </article>
+  <!-- end article -->
+{% endfor %}
+  		<nav id="nav-single">
+  		{%if pos.has_previous %}
+						<span class="nav-prev"><a href="?page={{posts.previous_page_number}}" rel="prev"><span class="meta-nav-prev">Prev Page</span></a></span>
+		{% endif %}
+  		{%if pos.has_next %}
+						<span class="nav-next"><a href="?page={{pos.next_page_number}}" rel="next"><span class="meta-nav-next">Next Page</span></a></span>
+		{% endif %}			
+					</nav><!-- #nav-single -->			
+					<hr />
+{% endblock%}

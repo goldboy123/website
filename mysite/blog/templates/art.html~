@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Spider</title>
+<link rel="shortcut icon" href="style/images/favicon.png"/>
+<link rel="stylesheet" type="text/css" href="/static/style/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/css/view.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/type/marketdeco.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/type/merriweather.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/css/queries.css" media="all" />
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/static/style/css/ie8.css" media="all" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="/static/style/css/ie9.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="/static/style/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/static/style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="/static/style/js/html5.js"></script>
+<script type="text/javascript" src="/static/style/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/static/style/js/selectnav.js"></script>
+<script type="text/javascript" src="/static/style/js/twitter.min.js"></script>
+</head>
+
+<body>
+<div id="page" class="hfeed">
+<div id="wrapper">
+<header id="branding" role="banner">
+  <h1 id="site-title"> 
+  	<a href="/" title="Spider" rel="home">
+    		<img src="/static/style/images/logo.png" alt="Spider" />
+    </a> 
+  </h1>
+  <div class="social">
+    <div class="widget_search">
+      <form method="get" class="search-form">
+        <input type="submit" value="Search" class="search-submit-button" />
+        <input type="text" value="Search" onfocus="this.value=''" onblur="this.value='Search'" name="s" class="search-text-box" />
+      </form> 
+    </div>
+    <ul>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-rss.png" alt="RSS" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-facebook.png" alt="Facebook" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-twitter.png" alt="Twitter" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-dribbble.png" alt="Dribbble" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-linkedin.png" alt="LinkedIn" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-pinterest.png" alt="Pinterest" /></a></li>
+    </ul>
+  </div>
+  <nav id="access" class="access" role="navigation">
+        <div id="menu" class="menu">
+        	<ul id="tiny">
+				<li><a href="/">主　页</a></li>
+
+				<li><a href="/ins">啰里啰嗦</a></li>
+	
+				<li><a href="/lists">计算机</a>
+					<ul>
+					{% for cata in catas %}
+			            <li><a href="/lists/{{ cata.id }}">{{ cata.catas}}</a></li>
+					{% endfor %}
+			        </ul>
+				</li>
+				<li><a href="/contact/">留　言</a></li>
+				<li><a href="/about">关　于</a></li>
+			</ul>
+		</div>
+		<div class="triangle-l"></div>
+		<div class="triangle-r"></div>
+  </nav>
+  <!-- #access --> 
+</header>
+<!-- #branding -->
+
+<div id="main">
+
+<div id="primary">
+  <div id="content" role="main">
+
+  <!-- begin article -->
+  <article class="post hentry format-image">
+  	<header class="entry-header">
+		<h2 class="entry-title"><a href="#">{{article.title}}</a></h2>
+		<div class="entry-meta">
+      		<div class="entry-format">
+        		<span class="image-format">image</span>
+        	</div>
+      		<span class="sep"> | </span>
+      		<a href="#"><time class="entry-date">{{article.time|date:"y,F jS"}}</time></a>
+      		<span class="sep"> | </span>	
+      		<span class="cat-links"> <a href="#">{{article.writer}}</a></span>
+     	</div>
+    	<!-- .entry-meta -->
+    </header>
+    <!-- .entry-header -->
+    
+    <div class="entry-content">
+      <div class="full-size"></div>
+		{{article.body|safe}}
+ 	</div>
+    <!-- .entry-content -->
+    
+  </article>
+  <!-- end article -->
+
+  		<nav id="nav-single">
+						<span class="nav-prev"><a href="/articles/{{ num }}/?page=0" rel="prev"><span class="meta-nav-prev">Prev Post</span></a></span>
+						<span class="nav-next"><a href="/articles/{{ num }}/?page=1" rel="next"><span class="meta-nav-next">Next Post</span></a></span>
+					</nav><!-- #nav-single -->
+					
+					
+					
+					<hr />
+	 
+  
+  
+
+
+  
+  </div><!-- #content -->
+</div><!-- #primary -->
+
+
+</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+		<div id="supplementary" class="four">
+			<div id="first" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">Search</h5>	
+					<form method="get" id="searchform" action="http://themes.iki-bir.com/serendipity-wp/">
+						<input type="text" class="field" name="s" id="s" title="Search" placeholder="" />
+						<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+					</form>
+				</aside>
+				
+				<aside class="widget">
+					<h5 class="widget-title">Recent Posts</h5>		
+						<ul>
+						{% for post in posts %}
+							<li><a href="/articles/{{ forloop.counter0 }}" title="{{post.title}}">{{post.title}}</a></li>
+						{% endfor %}
+						</ul>
+				</aside>
+			</div><!-- #first .widget-area -->
+	
+			<div id="second" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">Twitter</h5>
+					<div id="twitter-wrapper">
+						<div id="twitter"></div>
+						<span class="username"><a href="http://twitter.com/elemisdesign">→ Follow @elemisdesign</a></span>
+					</div>
+				</aside>	
+			</div><!-- #second .widget-area -->
+	
+			<div id="third" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">Tags</h5>
+						<div class="tagcloud"><a href='#' class='tag-link-37' title='1 topic' style='font-size: 8pt;'>blogroll</a>
+						<a href='#' class='tag-link-33' title='4 topics' style='font-size: 19.666666666667pt;'>daily</a>
+						<a href='#' class='tag-link-32' title='1 topic' style='font-size: 8pt;'>dialog</a>
+						<a href='#' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>gallery</a>
+						<a href='#' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>journal</a>
+						<a href='#' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>link</a>
+						<a href='#' class='tag-link-31' title='1 topic' style='font-size: 8pt;'>motion</a>
+						<a href='#' class='tag-link-38' title='1 topic' style='font-size: 8pt;'>music</a>
+						<a href='#' class='tag-link-25' title='5 topics' style='font-size: 22pt;'>photo</a>
+						<a href='#' class='tag-link-26' title='2 topics' style='font-size: 13.25pt;'>professional</a>
+						<a href='#' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>quotation</a>
+						<a href='#' class='tag-link-34' title='1 topic' style='font-size: 8pt;'>show</a>
+						<a href='#' class='tag-link-39' title='1 topic' style='font-size: 8pt;'>sound</a>
+						<a href='#' class='tag-link-35' title='1 topic' style='font-size: 8pt;'>tv</a>
+						<a href='#' class='tag-link-30' title='1 topic' style='font-size: 8pt;'>video</a></div>
+				</aside>
+				
+				<aside class="widget">
+					<h5 class="widget-title">Archives</h5>
+						<ul>
+							<li><a href='#' title='May 2012'>May 2012</a></li>
+							<li><a href='#' title='April 2012'>April 2012</a></li>
+						</ul>
+				</aside>
+			</div><!-- #third .widget-area -->
+		
+			<div id="fourth" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">About</h5>			
+					<div class="textwidget"><p>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. </p>
+						<p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
+					</div>
+				</aside>
+			</div><!-- #third .widget-area -->
+		</div><!-- #supplementary -->
+		<div id="site-generator">
+			Thanks to Serendipit<br> Copyright 2016 - Spider 
+		</div>
+
+	</footer><!-- #colophon -->
+	</div><!-- #wrapper -->
+</div><!-- #page -->
+
+<script type="text/javascript" src="/static/style/js/scripts.js"></script>
+</body>
+</html>

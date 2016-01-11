@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block conts %}
+
+  	{% for msg in messages %}
+      <div class="intro1"><table>
+      <tr>
+      <td width="100" height= "70" align="center">{{msg.user}}:</td>
+      <td>{{msg.time|date:"y,F jS"}}</td>
+       <td  align="left"></td>
+      </tr>
+      <tr>
+      <td width="100" align="center"></td>
+      <td width="150"  align="center"></td>
+      <td>{{msg.content|safe}}</td>
+      </tr>
+      </table></div>
+   {% endfor %}
+		<div id="respond">
+				<h3 id="reply-title">Leave a Reply</h3>
+				
+				<form action="/contact/" method="post" id="commentform">{% csrf_token %}
+						{{ response | safe }}
+					<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>
+					
+					<p class="comment-form-author">
+						<label for="author">Name</label> <span class="required">*</span>
+						<input id="author" name="author" type="text" value="" size="30" aria-required='true' />
+					</p>
+					<p class="comment-form-email">
+						<label for="email">Email</label> <span class="required">*</span>
+						<input id="email" name="email" type="text" value="" size="30" aria-required='true' />
+					</p>
+					<p class="comment-form-url">
+						<label for="url">Website</label>
+						<input id="url" name="url" type="text" value="" size="30" />
+					</p>
+					<p class="comment-form-comment">
+						<label for="comment">Comment</label>
+						<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea>
+					</p>
+					<p class="form-submit">
+						<input name="submit" type="submit" id="submit" value="Post Comment" />
+					</p>
+				</form>
+		</div><!-- #respond -->		
+{% endblock %}

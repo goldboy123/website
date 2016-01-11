@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Spider</title>
+<link rel="shortcut icon" href="style/images/favicon.png"/>
+<link rel="stylesheet" type="text/css" href="/static/style/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/css/view.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/type/marketdeco.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/type/merriweather.css" media="all" />
+<link rel="stylesheet" type="text/css" href="/static/style/css/queries.css" media="all" />
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/static/style/css/ie8.css" media="all" />
+<![endif]-->
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="/static/style/css/ie9.css" media="all" />
+<![endif]-->
+<script type="text/javascript" src="/static/style/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="/static/style/js/ddsmoothmenu.js"></script>
+<script type="text/javascript" src="/static/style/js/html5.js"></script>
+<script type="text/javascript" src="/static/style/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/static/style/js/selectnav.js"></script>
+<script type="text/javascript" src="/static/style/js/twitter.min.js"></script>
+</head>
+
+<body>
+<div id="page" class="hfeed">
+<div id="wrapper">
+<header id="branding" role="banner">
+  <h1 id="site-title"> 
+  	<a href="/" title="Spider" rel="home">
+    		<img src="/static/style/images/logo.png" alt="Spider" />
+    </a> 
+  </h1>
+  <div class="social">
+    <div class="widget_search">
+      <form method="get" class="search-form">
+        <input type="submit" value="Search" class="search-submit-button" />
+        <input type="text" value="Search" onfocus="this.value=''" onblur="this.value='Search'" name="s" class="search-text-box" />
+      </form> 
+    </div>
+    <ul>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-rss.png" alt="RSS" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-facebook.png" alt="Facebook" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-twitter.png" alt="Twitter" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-dribbble.png" alt="Dribbble" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-linkedin.png" alt="LinkedIn" /></a></li>
+      <li><a href="#" target="_blank"><img src="/static/style/images/icon-pinterest.png" alt="Pinterest" /></a></li>
+    </ul>
+  </div>
+  <nav id="access" class="access" role="navigation">
+        <div id="menu" class="menu">
+        	<ul id="tiny">
+				<li><a href="/">主　页</a></li>
+
+				<li><a href="/ins">啰里啰嗦</a></li>
+	
+				<li><a href="/lists">计算机</a>
+					<ul>
+					{% for cata in catas %}
+			            <li><a href="/lists/{{ cata.id }}">{{ cata.cats}}</a></li>
+					{% endfor %}
+			        </ul>
+				</li>
+				<li><a href="/contact/">留　言</a></li>
+				<li><a href="/about/">关　于</a></li>
+			</ul>
+		</div>
+		<div class="triangle-l"></div>
+		<div class="triangle-r"></div>
+  </nav>
+  <!-- #access --> 
+</header>
+<!-- #branding -->
+
+<div id="main">
+
+<div id="primary">
+  <div id="content" role="main">
+
+  <!-- begin article -->
+  <article class="post hentry format-image">
+  	<header class="entry-header">
+		<h2 class="entry-title"><a href="#">{{article.title}}</a></h2>
+		<div class="entry-meta">
+      		<div class="entry-format">
+        		<span class="image-format">image</span>
+        	</div>
+      		<span class="sep"> | </span>
+      		<a href="#"><time class="entry-date">{{article.time|date:"y,F jS"}}</time></a>
+      		<span class="sep"> | </span>	
+      		<span class="cat-links"> <a href="#">{{article.writer}}</a></span>
+     	</div>
+    	<!-- .entry-meta -->
+    </header>
+    <!-- .entry-header -->
+    
+    <div class="entry-content">
+      <div class="full-size"></div>
+		{{article.body|safe}}
+ 	</div>
+    <!-- .entry-content -->
+    
+  </article>
+  <!-- end article -->
+  
+    		<nav id="nav-single">
+						<span class="nav-prev"><a href="/lists/{{article.catalog.id}}" ><span class="meta-nav-prev">返回列表</span></a></span>
+						<span class="nav-next"><a href="/" ><span class="meta-nav-next">返回首页</span></a></span>
+					</nav><!-- #nav-single -->
+					<hr />
+	 <!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="{{article.id}}" data-title="{{article.title}}" data-url="/artic/{{article.id}}"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"goldboy123"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+  
+  
+
+
+  
+  </div><!-- #content -->
+</div><!-- #primary -->
+
+
+</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+		<div id="supplementary" class="four">
+			<div id="first" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">Search</h5>	
+					<form method="get" id="searchform" action="http://themes.iki-bir.com/serendipity-wp/">
+						<input type="text" class="field" name="s" id="s" title="Search" placeholder="" />
+						<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search" />
+					</form>
+				</aside>
+				
+				<aside class="widget">
+					<h5 class="widget-title">Recent Posts</h5>		
+						<ul>
+						{% for post in posts %}
+							<li><a href="/articles/{{ forloop.counter0 }}" title="{{post.title}}">{{post.title}}</a></li>
+						{% endfor %}
+						</ul>
+				</aside>
+			</div><!-- #first .widget-area -->
+	
+			<div id="second" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">新浪微博</h5>
+					<div id="twitter-wrapper">
+						<div id="twitter"></div>
+						<span class="username"><a href="http://www.weibo.com/goldboy123">→ Follow @_脏小船_</a></span>
+					</div>
+				</aside>	
+			</div><!-- #second .widget-area -->
+	
+			<div id="third" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">Tags</h5>
+						<div class="tagcloud"><a href='#' class='tag-link-37' title='1 topic' style='font-size: 8pt;'>blogroll</a>
+						<a href='#' class='tag-link-33' title='4 topics' style='font-size: 19.666666666667pt;'>c/c++</a>
+						<a href='#' class='tag-link-32' title='1 topic' style='font-size: 8pt;'>Python</a>
+						<a href='#' class='tag-link-28' title='1 topic' style='font-size: 8pt;'>Django</a>
+						<a href='#' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>计算机</a>
+						<a href='#' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>黑客</a>
+						<a href='#' class='tag-link-31' title='1 topic' style='font-size: 8pt;'>旅游</a>
+						<a href='#' class='tag-link-38' title='1 topic' style='font-size: 8pt;'>美景</a>
+						<a href='#' class='tag-link-25' title='5 topics' style='font-size: 22pt;'>电影</a>
+						<a href='#' class='tag-link-26' title='2 topics' style='font-size: 13.25pt;'>Linux</a>
+						<a href='#' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>PHP</a>
+						<a href='#' class='tag-link-34' title='1 topic' style='font-size: 8pt;'>小说</a>
+				</aside>
+				
+				<aside class="widget">
+					<h5 class="widget-title">Archives</h5>
+						<ul>
+							<li><a href='#' title='May 2012'>...</a></li>
+							<li><a href='#' title='April 2012'>...</a></li>
+						</ul>
+				</aside>
+			</div><!-- #third .widget-area -->
+		
+			<div id="fourth" class="widget-area" role="complementary">
+				<aside class="widget">
+					<h5 class="widget-title">About</h5>			
+					<div class="textwidget"><p>姓名:_脏小船_<br><p>Email:527192069@qq.com</p><p>一名默默无闻的计算机爱好者.</p>
+					</div>
+				</aside>
+			</div><!-- #third .widget-area -->
+		</div><!-- #supplementary -->
+		<div id="site-generator">
+			Thanks to Serendipit<br> Copyright 2016 - Spider 
+		</div>
+
+	</footer><!-- #colophon -->
+	</div><!-- #wrapper -->
+</div><!-- #page -->
+
+<script type="text/javascript" src="/static/style/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{% extends "base.html"%}
+{% block inss %}
+{% for about in abouts %}
+{{about.content|safe}}
+{% endfor %}
+
+{% endblock%}
