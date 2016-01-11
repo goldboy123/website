@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" >
+<title>Spider</title>
+<style type="text/css">
+body{
+	background: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666666;
+	padding: 0px;
+	margin: 5px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #999;
+	
+}
+h1{
+	padding:2em 1em;
+	background-color: #CCC;
+	color: #930;
+	font-size: large;
+	text-align: justify;
+}
+h2 {color:#bf8;border-top:1px dotted #fff; margin-top:2em }
+p {
+	margin:1em 0;
+	text-align: left;
+	color: #F00;
+	font-family: "Comic Sans MS", cursive;
+}
+#nav{
+	height: 44px;
+	width: 425px;
+	background: #FFF;
+	margin:10px auto;
+	}
+.vline{
+	background: #999;
+	width: 1px;
+	height: 20px;
+	}
+#nav ul{
+	margin:0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#nav li{
+	float: left;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: center;
+}
+#nav li a{
+	display: block;
+	width: 84px;
+	line-height: 28px;
+	color:  #666;	
+	text-decoration: none;
+	border-top: 4px solid #0F35A5;
+	}
+#nav li a:hover{
+	color:  #7C8DD9;
+	border-top: 4px solid #7C8DD9;	
+}
+.clear{ clear: both; font-size:1px; width:1px; visibility: hidden; }
+
+
+
+.s {
+	font-family: Georgia, Times New Roman, Times, serif;
+}
+.s {
+	font-size: 16px;
+	color: #F00;
+}
+#apDiv1 {
+	position:absolute
+
+
+
+	z-index:1;
+	position: absolute;
+	visibility: visible;
+	height: 298px;
+	width: 40%;
+	top: 130px;
+	background-color: #9CF;
+	clear: left;
+	left: 30%;
+	text-align: right;
+}
+#apDiv2 {
+	position:absolute;
+	z-index:1;
+	left: 115px;
+	top: 112px;
+	width: 429px;
+	height: 173px;
+}
+.ss {
+	font-size: 16px;
+	font-family: "Comic Sans MS", cursive;
+	position: absolute;
+	height: auto;
+	width: auto;
+	left: 70px;
+	top: 45px;
+}
+.dd {
+	font-size: 14px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.gg {
+	font-size: 16px;
+	font-family: "Comic Sans MS", cursive;
+	position: absolute;
+	height: auto;
+	width: auto;
+	left: 71px;
+	top: 135px;
+}
+
+.p3 {
+	font-size: 16px;
+	font-family: "Comic Sans MS", cursive;
+	position: absolute;
+	height: auto;
+	width: auto;
+	left: 71px;
+	top: 220px;
+}
+#apDiv3 {
+	position:absolute;
+	width:200px;
+	height:44px;
+	z-index:1;
+	background-color: #999999;
+	left: 80%;
+	top: 60%;
+}
+.fonts {
+	font-size: 16px;
+	font-style: normal;
+	line-height: normal;
+	color: #039;
+	background-color: #0F0;
+}
+.fo {
+	font-family: "MS Serif", "New York", serif, "宋体";
+	font-size: 14px;
+	color: #306;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<form name="form1" method="post" action="">
+  {% block content %}
+{% for post in posts reversed %}
+  <table width="100%" border="0">
+    <tr>
+      <td width="20%" rowspan="5">&nbsp;</td>
+
+
+      <td width="60%" align="center" valign="middle" bgcolor="#CCCCCC"><h4 class="fo"><a href="/articles/{{ forloop.revcounter0}}">{{post.title}}</a></h4></td>
+      <td width="60%" align="center" valign="middle" bgcolor="#CCCCCC"><a href="#">{{post.time|date:"1,F jS"}}</a></td>
+
+      <td width="20%" rowspan="5" >&nbsp;</td>
+    </tr>
+    <tr>
+      
+    </tr>
+   
+  </table>
+      {% endfor %}
+{% endblock %}
+</form>
+<hr width="80%" size="1" noshade="noshade">
+<A><center>CopyRight © 2014 Spider </center></A>
+</body>
+</html>

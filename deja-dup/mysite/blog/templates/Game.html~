@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Spider</title>
+<style type="text/css">
+body{
+	background: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666666;
+	padding: 0px;
+	margin: 5px;
+	text-align: center;
+	font-size: 12px;
+	background-color: #999;
+}
+
+#nav{
+	height: 44px;
+	width: 425px;
+	background: #FFF;
+	margin:10px auto;
+	}
+.vline{
+	background: #999;
+	width: 1px;
+	height: 20px;
+	}
+#nav ul{
+	margin:0px;
+	padding: 0px;
+	list-style-type: none;
+}
+#nav li{
+	float: left;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 12px;
+	text-align: center;
+}
+#nav li a{
+	display: block;
+	width: 84px;
+	line-height: 28px;
+	color:  #666;	
+	text-decoration: none;
+	border-top: 4px solid #0F35A5;
+	}
+#nav li a:hover{
+	color:  #7C8DD9;
+	border-top: 4px solid #7C8DD9;	
+}
+.clear{ clear: both; font-size:1px; width:1px; visibility: hidden; }
+
+
+
+.s {
+	font-family: Georgia, Times New Roman, Times, serif;
+}
+.s {
+	font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+<table width="100%" border="0">
+    <tr>
+      <td width="20%">&nbsp;</td>
+      <td width="60%" align="center" bgcolor="#CCCCCC"><div id="nav" >
+<img src="素材/943765805096166.gif" width="425" height="60">
+<ul><li><a href="#">主页</a></li><li class="vline"></li>
+<li><a href="#">萝莉啰嗦</a></li><li class="vline"></li>
+<li><a href="#">掉渣之作</a></li><li class="vline"></li>
+<li><a href="#">游戏</a></li><li class="vline"></li>
+<li><a href="#">关于</a></li><li class="vline"></li>
+
+</ul>
+</div>
+
+
+<h1>&nbsp;</h1>
+<h1 class="s">&nbsp;</h1>
+<div>
+<form action="/games/" method="get">
+<table width="424" height="180" border="1">
+  <tr>
+    <td width="232" height="27">请输入一个四位数：
+      <label for="ss"></label>
+      <input name="q" type="text" id="num" value="" size="10" maxlength="4"></td>
+    <td width="47"><input type="submit" name="ok" id="ok" value="确定"></td>
+    <td width="123" rowspan="2">
+ {%block content%} 
+{% if j %}
+{{num}}
+{% endif %}</td>
+  </tr>
+  <tr>
+    <td height="137" colspan="2" align="left" valign="top"><p>游戏说明：
+      </p>
+      <h2>猜数字游戏，更多信息自己百度。</h2>
+      <h2>（^ v ^）</h2>
+<p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p>&nbsp;</p></td>
+    </tr>
+</table>
+</form>
+</div>
+
+<h1 class="s">&nbsp;</h1>
+<h1 class="s">
+  <label for="dd"></label>
+</h1>
+<p>&nbsp;</p></td>
+      <td width="20%" >&nbsp;</td>
+    </tr>
+  </table>
+<hr width="80%" size="1" noshade="noshade">
+<A><center>CopyRight © 2014 Spider </center></A>
+</body>
+</html>

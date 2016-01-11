@@ -1,0 +1,105 @@
+﻿
+<!-- saved from url=(0032)http://www.goldboy.tk/about.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<bgsound src="http://sc.111ttt.com/up/mp3/201444/26AB3E59C6AA57AE33B27ECE6A3537C6.mp3" loop="-1"></bgsound>
+<script src="./about_files/SpryMenuBar.js" type="text/javascript"></script>
+<link href="./about_files/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css">
+</head><body bgcolor="black" onLoad="MM_preloadImages(&#39;../Downloads/drop-down-menu/drop-down-menu.png&#39;)">
+
+<title>Spider</title>
+    <style type="text/css">
+body{
+	font-family: Arial;
+	margin-top:0px;
+	background-repeat:no-repeat;
+	padding-top:100px;
+	}
+    #myContent, #myContent blink{
+        width:500px;
+        height:200px;
+        background:blue;
+        color: #00FFF0;
+        font-family:courier;
+    }    
+    blink{
+        display:inline;
+    }
+    </style>
+<script type="text/javascript">	
+    var charIndex = -1;
+    var stringLength = 0;
+    var inputText;
+    function writeContent(init){
+
+    if(init){
+    	inputText = document.getElementById('contentToWrite').innerHTML;
+    }
+        if(charIndex==-1){
+            charIndex = 0;
+            stringLength = inputText.length;
+        }
+        var initString = document.getElementById('myContent').innerHTML;
+		initString = initString.replace(/<SPAN.*$/gi,"");
+        
+        var theChar = inputText.charAt(charIndex);
+       	var nextFourChars = inputText.substr(charIndex,4);
+       	if(nextFourChars=='<BR>' || nextFourChars=='<br>'){
+       		theChar  = '<BR>';
+       		charIndex+=3;
+       	}
+        initString = initString + theChar + "<SPAN id='blink'>_</SPAN>";
+        document.getElementById('myContent').innerHTML = initString;
+        charIndex = charIndex/1 +1;
+if(charIndex%2==1){
+             document.getElementById('blink').style.display='none';
+        }else{
+             document.getElementById('blink').style.display='inline';
+        }
+                
+        if(charIndex<=stringLength){
+            setTimeout('writeContent(false)',150);
+        }else{
+        	blinkSpan();
+        }  
+    }
+    var currentStyle = 'inline';
+    function blinkSpan(){
+    	if(currentStyle=='inline'){
+    	currentStyle='none';
+    	}else{
+    	currentStyle='inline';
+    	}
+    	document.getElementById('blink').style.display = currentStyle;
+    	setTimeout('blinkSpan()',500);
+    }
+
+
+    </script>
+
+
+
+<center><div id="myContent" style="text-align:left;font:bold 30px 宋体;background-color:Black">
+
+
+
+
+<span id="blink" style="display: none;">_</span></div></center>
+<center><div id="contentToWrite" style="display:none;">
+<br>姓名:_脏小船_<br>性别:无性之人<br>本质:矛盾下的统一高智能生物<br>信仰：笛卡尔唯心主义<br>
+签名:天道酬勤<br>简介：就读于兰州理工大学，曾效力于本校网络安全协会，爱自由，爱和平，爱家庭，爱网络，爱旅游。<br>****************************
+<br>
+
+</div></center>
+<h1>&nbsp;</h1>
+<script type="text/javascript">
+writeContent(true);
+var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="107" height="32" hspace="500" vspace="100">
+  <param name="movie" value="text1.swf">
+  <param name="quality" value="high">
+  <param name="bgcolor" value="#000000">
+  <embed src="text1.swf" width="107" height="32" hspace="500" vspace="100" quality="high" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" bgcolor="#000000">
+</object>
+
+</body></html>

@@ -1,0 +1,19 @@
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+import os
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'mysite.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^ckeditor/', include('ckeditor.urls')),
+    url(r'^media/images/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(os.path.dirname(__file__), 'media/images').replace('\\','/'),}), 
+    url(r'^games/$','games.views.games'),
+    url(r'^articles/$','blog.views.PostShowIndex'),
+    url(r'^articles/(?P<num>\d+)/$','blog.views.PostShow'),
+    url(r'^listarc/$','blog.views.ListArc'),
+    url(r'^$','blog.views.Index'),
+
+)

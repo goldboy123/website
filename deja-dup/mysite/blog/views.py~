@@ -1,0 +1,20 @@
+from django.shortcuts import render,render_to_response
+from blog.models import BlogPost
+from blog.models import IndexContent
+def PostShowIndex(request):
+	posts=BlogPost.objects.all()
+	return render_to_response("article.html",{"posta":posts[0].title,"postb":posts[1].title,"postc":posts[2].title,"datea":posts[0].time,"dateb":posts[1].time,"datec":posts[2].time})
+def PostShow(request,num):
+	posts=BlogPost.objects.all()
+	return render_to_response("showarc.html",{"title":posts[int(num)].title,"content":posts[int(num)].body})
+		
+def ListArc(request):
+	posts=BlogPost.objects.all()
+	return render_to_response("list.html",{"posts":posts})	
+def Index(request):
+	content=IndexContent.objects.all()
+	return render_to_response("index.html",{"content":content[0].content})
+def Works(request):
+	return render_to_response("works.html")
+def About(request):
+	return render_to_response("about.html")
